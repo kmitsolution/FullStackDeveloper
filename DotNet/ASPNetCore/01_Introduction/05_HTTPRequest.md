@@ -412,13 +412,14 @@ Browser supports compressed responses.
 ```csharp
 app.MapGet("/", (HttpContext context) =>
 {
-    foreach(var header in context.Request.Headers)
+    string result = "";
+    foreach (var header in context.Request.Headers)
     {
-        Console.WriteLine($"{header.Key} : {header.Value}");
+        result += $"{header.Key} : {header.Value}\n";
     }
-
-    return "Check Console";
+    return result;
 });
+app.Run();
 ```
 
 Console
