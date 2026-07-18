@@ -120,9 +120,95 @@ Output
 ```text
 Student Id = 101
 ```
+## Example 2 (with HttpContext)
+```
+var builder = WebApplication.CreateBuilder(args);
 
+var app = builder.Build();
+
+app.MapGet("/", (HttpContext context) =>
+{
+    var id = context.Request.Query["id"];
+    if (id == "1")
+        return "All Well";
+    else
+        return "Not wel";
+});
+```
+## Example 3 with HttpRequest which is HttpContext.HttpRequest
+```
+var builder = WebApplication.CreateBuilder(args);
+
+var app = builder.Build();
+
+app.MapGet("/", (HttpRequest request) =>
+{
+    var id = request.Query["id"];
+    if (id == "1")
+        return "All Well";
+    else
+        return "Not wel";
+});
+
+app.Run();
+```
+## Example 4 return all the query string keys and values
+```
+var builder = WebApplication.CreateBuilder(args);
+
+var app = builder.Build();
+
+app.MapGet("/", (HttpContext context) =>
+{
+    foreach (var item in context.Request.Query)
+    {
+        Console.WriteLine($"{item.Key} = {item.Value}");
+    }
+
+    return "Done";
+});
+
+app.Run();
+```
+
+## Example 5 with Multiple Get()
+```
+app.MapGet("/products", () => "All Products");
+
+app.MapGet("/products/{id}", (int id) =>
+{
+    return $"Product Id = {id}";
+});
+```
+## Example 6
+```
+var builder = WebApplication.CreateBuilder(args);
+
+var app = builder.Build();
+
+app.MapGet("/", () => "Home");
+
+app.MapGet("/about", () => "About");
+
+app.MapGet("/products", async (
+    HttpRequest request,
+    HttpResponse response) =>
+{
+    string id = request.Query["id"];
+
+    if (id == "1")
+    {
+        await response.WriteAsync("Product Found");
+    }
+    else
+    {
+        await response.WriteAsync("Product Not Found");
+    }
+});
+
+app.Run();
 ---
-
+```
 # POST Request
 
 A **POST** request sends data to the server.
