@@ -207,8 +207,69 @@ app.MapGet("/products", async (
 });
 
 app.Run();
----
 ```
+## Example 7 DB Example
+```
+
+public class Student
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public DateTime DOB { get; set; }
+}
+
+```
+```
+using Microsoft.Data.SqlClient;
+
+var builder = WebApplication.CreateBuilder(args);
+
+var app = builder.Build();
+app.MapGet("/", () => "Home Page");
+
+app.MapGet("/student", async (HttpRequest request) =>
+{
+    string id = Convert.ToString(request.Query["id"]);
+    if (string.IsNullOrWhiteSpace(id))
+    {
+        return Results.BadRequest(new { error = "id query parameter is required" });
+    }
+
+    if (!int.TryParse(id, out int idVal))
+    {
+        return Results.BadRequest(new { error = "id must be an integer" });
+    }
+
+    using (SqlConnection cn = new SqlConnection("Server=localhost;Database=DotNetDB;Trusted_Connection=True;TrustServerCertificate=True;"))
+    using (SqlCommand cmd = cn.CreateCommand())
+    {
+        cmd.CommandText = "SELECT id, Name, DOB FROM student WHERE id = @id";
+        cmd.Parameters.AddWithValue("@id", idVal);
+        await cn.OpenAsync();
+        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+        {
+            if (await reader.ReadAsync())
+            {
+                var student = new Student
+                {
+                    Id = reader.GetInt32(0),
+                    Name = reader.IsDBNull(1) ? null : reader.GetString(1),
+                    DOB = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2)
+                };
+
+                return Results.Ok(student);
+            }
+        }
+    }
+
+    return Results.NotFound();
+
+});
+
+app.Run();
+```
+---
+
 # POST Request
 
 A **POST** request sends data to the server.
