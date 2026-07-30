@@ -1,7 +1,3 @@
-Perfect. Based on what we've already completed and your goals, we'll **not learn Angular as an isolated framework**. Instead, we'll learn it exactly the way it's used in real companies—with an **ASP.NET Core Web API backend**.
-
-Since you already know ASP.NET Core, we'll treat it as the backend and focus on becoming productive in Angular.
-
 ---
 
 # Angular + ASP.NET Core Learning Roadmap
