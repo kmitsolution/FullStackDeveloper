@@ -1,208 +1,172 @@
-#  Angular Basics (Week 1)
+Perfect. Based on what we've already completed and your goals, we'll **not learn Angular as an isolated framework**. Instead, we'll learn it exactly the way it's used in real companies—with an **ASP.NET Core Web API backend**.
 
-## Install
+Since you already know ASP.NET Core, we'll treat it as the backend and focus on becoming productive in Angular.
 
-* Node.js
-* VS Code
+---
+
+# Angular + ASP.NET Core Learning Roadmap
+
+## Phase 1: Angular Fundamentals
+
+**Goal:** Understand how Angular works before connecting it to an API.
+
+### Module 1: Introduction to Angular
+
+* What is Angular?
+* Why Angular?
+* Angular vs React vs Vue
+* SPA (Single Page Application)
+* Angular Architecture
 * Angular CLI
+* Create your first Angular application
+* Angular project structure
+* Build & Run Angular application
 
-Commands
+**Mini Project**
 
-```bash
-npm install -g @angular/cli
-
-ng new angular-demo
-
-cd angular-demo
-
-ng serve
-```
-
-Understand project structure
-
-```
-src
-
-app
-
-assets
-
-public
-
-angular.json
-
-package.json
-
-tsconfig.json
-```
+* Simple Welcome Page
 
 ---
 
-## Standalone Components
+### Module 2: Components
 
-Create component
+Components are the heart of Angular.
 
-```bash
-ng generate component home
-```
+Topics:
 
-Topics
+* What is a Component?
+* Component Architecture
+* Component Lifecycle
+* Inline Template
+* External Template
+* Inline CSS
+* External CSS
+* Creating Components
+* Nested Components
+* Parent & Child Components
+* Component Communication
 
-* selector
-* template
-* styles
-* imports
-* standalone:true
+**Mini Project**
+
+Employee Dashboard
 
 ---
 
-## Data Binding
+### Module 3: Templates & Data Binding
 
-Very important
+One of the most important modules.
 
-* Interpolation
+Topics:
 
-```html
-{{title}}
-```
-
+* String Interpolation
 * Property Binding
-
-```html
-<img [src]="image">
-```
-
 * Event Binding
-
-```html
-<button (click)="save()">
-```
-
 * Two-way Binding
+* Template Variables
+* Template Expressions
+
+Example
 
 ```html
-<input [(ngModel)]="name">
+<input [(ngModel)]="employee.name">
 ```
+
+Mini Project
+
+Employee Form
 
 ---
 
-## Directives
+### Module 4: Directives
 
-### @if
+Topics:
 
-```html
-@if(isAdmin){
+* ngIf
+* ngFor
+* ngSwitch
+* ngClass
+* ngStyle
+* Custom Directives
 
-}
-```
+Mini Project
 
-### @for
-
-```html
-@for(emp of employees;track emp.id){
-
-}
-```
-
-### @switch
+Employee List
 
 ---
 
-## Pipes
+### Module 5: Pipes
 
+Topics:
+
+* Date Pipe
+* Currency Pipe
+* Decimal Pipe
 * Uppercase
 * Lowercase
-* Currency
-* Percent
-* Date
-* JSON
+* Slice Pipe
+* JSON Pipe
+* Async Pipe
+* Custom Pipe
 
-Custom Pipe
+Mini Project
 
----
-
-# Phase 3 - Components (Week 2)
-
-Topics
-
-Component Communication
-
-Parent → Child
-
-```typescript
-@Input()
-```
-
-Child → Parent
-
-```typescript
-@Output()
-```
-
-EventEmitter
-
-Component Lifecycle
-
-* constructor
-* ngOnInit
-* ngOnChanges
-* ngAfterViewInit
-* ngOnDestroy
-
-ViewChild
-
-Content Projection
-
-```
-<ng-content>
-```
+Employee Salary Report
 
 ---
 
-# Phase 4 - Services and Dependency Injection
+## Phase 2: Angular Architecture
 
-Create Service
+Now we'll learn how enterprise Angular applications are organized.
 
-```bash
-ng g service services/product
-```
+### Module 6: Services
 
 Topics
 
-* Injectable
-* Singleton Service
+* Why Services?
+* Creating Services
+* Singleton Services
 * Dependency Injection
-* Injection Tokens
+* Service Lifetime
+
+Mini Project
+
+EmployeeService
 
 ---
 
-# Phase 5 - Routing
+### Module 7: Routing
 
 Topics
 
-Create Routes
+* Angular Routing
+* Route Parameters
+* Child Routes
+* Lazy Loading
+* Route Guards
 
-Navigation
+Mini Project
 
-Route Parameters
+```text
+Login
 
+↓
+
+Dashboard
+
+↓
+
+Employees
+
+↓
+
+Employee Details
 ```
-products/:id
-```
-
-Query Parameters
-
-Lazy Loading
-
-Route Guards
-
-404 Page
-
-Nested Routes
 
 ---
 
-# Phase 6 - Forms (Very Important)
+### Module 8: Forms
+
+Topics
 
 Template Driven Forms
 
@@ -210,326 +174,298 @@ Reactive Forms
 
 Validation
 
-* Required
-* Email
-* Pattern
-* MinLength
+Custom Validation
 
-Custom Validators
+Form Arrays
 
 Dynamic Forms
 
-FormArray
+Mini Project
 
-FormGroup
+Employee Registration
 
 ---
 
-# Phase 7 - HTTP Client
+## Phase 3: Angular + ASP.NET Core Integration ⭐
+
+Now Angular becomes interesting.
+
+### Module 9: HttpClient
 
 Topics
 
-GET
+* GET
+* POST
+* PUT
+* DELETE
+* PATCH
+* Headers
+* Query Parameters
+* Error Handling
 
-POST
+Backend
 
-PUT
+ASP.NET Core API
 
-DELETE
+Example
 
-PATCH
-
-Headers
-
-Authentication Token
-
-Error Handling
-
-Retry
-
-Interceptors
-
-Loading Spinner
-
----
-
-# Phase 8 - RxJS
-
-Angular heavily uses RxJS.
-
-Topics
-
-Observable
-
-Observer
-
-Subject
-
-BehaviorSubject
-
-ReplaySubject
-
-Operators
-
-* map
-* filter
-* tap
-* mergeMap
-* switchMap
-* concatMap
-* forkJoin
-* combineLatest
-* debounceTime
-* catchError
-* retry
-
----
-
-# Phase 9 - Signals (Modern Angular)
-
-Very Important
-
-signal()
-
-computed()
-
-effect()
-
-Writable Signals
-
-Signal Inputs
-
-Signal Outputs
-
-Compare Signals vs RxJS
-
----
-
-# Phase 10 - Angular UI
-
-Learn one framework
-
-Recommended
-
-* Angular Material
-
-Topics
-
-Table
-
-Dialog
-
-Toolbar
-
-Menu
-
-Card
-
-Paginator
-
-Sorting
-
-Snackbar
-
-Progress Bar
-
-Date Picker
-
-Stepper
-
----
-
-# Phase 11 - Authentication
-
-JWT
-
-Login
-
-Logout
-
-Role Based Authentication
-
-Refresh Token
-
-Route Guards
-
-HTTP Interceptor
-
----
-
-# Phase 12 - Angular + ASP.NET Core
-
-This is where everything comes together.
-
-Architecture
-
-```
+```text
 Angular
 
 ↓
 
-HTTP
+GET
 
 ↓
 
-ASP.NET Core API
+/api/employees
+
+↓
+
+ASP.NET Core
 
 ↓
 
 SQL Server
 ```
 
-Learn
+Mini Project
 
-Calling APIs
-
-CORS
-
-JWT Authentication
-
-File Upload
-
-Download Files
-
-Image Upload
-
-Pagination
-
-Filtering
-
-Sorting
-
-Search
-
-Swagger
-
-Error Handling
-
-Validation
+Employee CRUD
 
 ---
 
-# Phase 13 - State Management
+### Module 10: Models
 
-Start with
+Topics
 
-Services
+Create
+
+```text
+Employee.ts
+```
+
+matching
+
+```csharp
+Employee.cs
+```
+
+Example
+
+ASP.NET Core
+
+```csharp
+public class Employee
+{
+    public int Id {get;set;}
+    public string Name {get;set;}
+}
+```
+
+Angular
+
+```typescript
+export interface Employee
+{
+    id:number;
+    name:string;
+}
+```
+
+---
+
+### Module 11: RxJS
+
+Topics
+
+Observable
+
+Subscribe
+
+Operators
+
+map
+
+filter
+
+tap
+
+switchMap
+
+catchError
+
+forkJoin
+
+combineLatest
+
+Subjects
 
 BehaviorSubject
 
+ReplaySubject
+
+Angular uses RxJS everywhere.
+
+---
+
+### Module 12: Authentication
+
+Backend
+
+ASP.NET Core JWT
+
+Frontend
+
+Angular
+
+Topics
+
+* Login
+* Logout
+* JWT Token
+* Store Token
+* HttpInterceptor
+* Authorization Header
+* Route Guard
+* Refresh Token (concept)
+
+Mini Project
+
+Secure Employee Portal
+
+---
+
+### Module 13: HttpInterceptor
+
+Topics
+
+Automatically add
+
+```text
+Authorization:
+Bearer Token
+```
+
+to every API request.
+
+Very common in enterprise applications.
+
+---
+
+### Module 14: Error Handling
+
+Topics
+
+Global Error Handler
+
+API Error Messages
+
+Loading Spinner
+
+Retry Logic
+
+Toast Notifications
+
+---
+
+## Phase 4: Advanced Angular
+
+Topics
+
 Signals
 
-Then
+Standalone Components
 
-NgRx
+Lazy Loading
 
-Only after becoming comfortable.
-
----
-
-# Phase 14 - Unit Testing
-
-Jasmine
-
-Karma (or the newer alternatives used by Angular)
-
-Component Testing
-
-Service Testing
-
-Mock HTTP
-
-Code Coverage
-
----
-
-# Phase 15 - Build & Deployment
-
-Development Build
-
-Production Build
-
-```bash
-ng build
-```
+Performance Optimization
 
 Environment Files
 
-Docker
+Configuration
 
-Nginx
+Reusable Components
 
-Azure App Service
+Reusable Services
 
-Azure Static Web Apps
-
-GitHub Actions
-
-GitLab CI/CD
+Deployment
 
 ---
 
-# Phase 16 - Capstone Project (3-4 Weeks)
+## Phase 5: Complete Enterprise Project ⭐⭐⭐⭐⭐
 
-Build a complete application using Angular + ASP.NET Core.
+We'll build one complete application from scratch.
 
-## Suggested Project: Employee Management System
+### Employee Management System
 
-### Angular
+### Backend (ASP.NET Core)
+
+* Web API
+* Entity Framework Core
+* SQL Server
+* JWT Authentication
+* Repository Pattern
+* Dependency Injection
+* Swagger
+
+---
+
+### Frontend (Angular)
 
 * Login
 * Dashboard
-* Employee List
-* Employee Details
-* Add Employee
-* Edit Employee
-* Delete Employee
+* Employee CRUD
+* Department CRUD
 * Search
 * Pagination
 * Sorting
-* Charts
-* File Upload
-* Profile Picture
-* Role Based UI
-
-### ASP.NET Core
-
-* JWT Authentication
-* CRUD APIs
-* SQL Server
-* Entity Framework Core
-* Repository Pattern
-* Swagger
-* Logging
+* Forms
 * Validation
-* File Upload
+* Authentication
+* Authorization
+* Route Guards
+* Services
+* HttpClient
+* RxJS
+* Interceptors
+* Responsive UI
 
 ---
 
-# Suggested Learning Timeline
+### Deployment
 
-| Week | Topics                                                     |
-| ---- | ---------------------------------------------------------- |
-| 1    | TypeScript Fundamentals                                    |
-| 2    | Angular Basics, Components, Data Binding                   |
-| 3    | Directives, Pipes, Services, Dependency Injection          |
-| 4    | Routing and Forms                                          |
-| 5    | HTTP Client, RxJS, Signals                                 |
-| 6    | Angular Material and Authentication                        |
-| 7    | Angular + ASP.NET Core Integration                         |
-| 8    | Capstone Project (Employee Management System)              |
-| 9    | Advanced Features (State Management, Testing, Performance) |
-| 10   | Deployment with Docker, Azure, and GitLab CI/CD            |
+Docker
 
-## Final Project Ideas
+Angular
 
-After completing the roadmap, you should be able to build applications such as:
+↓
 
-1. Employee Management System
-2. E-Commerce Application
-3. Banking Application
-4. Hospital Management System
-5. Student Management System
-6. DevOps Pipeline Dashboard (Angular + ASP.NET Core + Azure)
+Nginx
 
-Given your background, I'd also suggest turning this into a **YouTube playlist**. A **60-lecture series** (20–30 minutes per lecture) would take viewers from Angular fundamentals to a production-ready Angular + ASP.NET Core application with authentication, Docker, and GitLab CI/CD deployment, aligning well with the kind of technical training content you already create.
+ASP.NET Core
+
+↓
+
+Kestrel
+
+↓
+
+SQL Server
+
+(Optional later, since you already have Docker knowledge.)
+
+---
+
+# Folder Structure We'll Follow
+
+```text
+EmployeeManagement
+
+├── EmployeeManagement.Api        (ASP.NET Core)
+
+├── EmployeeManagement.UI         (Angular)
+
+└── README.md
+```
+
