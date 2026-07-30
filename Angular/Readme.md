@@ -1,4 +1,3 @@
----
 
 # Angular + ASP.NET Core Learning Roadmap
 
