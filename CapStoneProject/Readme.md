@@ -1,6 +1,4 @@
-Absolutely. Based on the **Cognixia Full-Stack Development with ASP.NET Core and Angular with NodeJS** syllabus you attached, I would recommend building **one complete real-world project from start to finish**, rather than creating separate small projects for each topic.
-
-The syllabus itself is strongly oriented toward an **e-commerce application**: product catalog, shopping cart, authentication, checkout, Stripe payments, orders, Redis, SignalR, administration, caching, and Azure deployment. 
+**e-commerce application**: product catalog, shopping cart, authentication, checkout, Stripe payments, orders, Redis, SignalR, administration, caching, and Azure deployment. 
 
 # Full-Stack Project: E-Commerce Shopping Platform
 
